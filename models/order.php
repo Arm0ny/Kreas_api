@@ -9,8 +9,6 @@ class Order
     public $sell_date;
     public $dest_country;
     public $total_co2;
-    public $order_details;
-
     public $order_by = "sell_date";
     public $order = "DESC";
 
@@ -67,6 +65,24 @@ class Order
         }
 
         return $stmt->execute();
+    }
+
+    public function delete()
+    {
+
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
+
+        $stmt = $this->conn->prepare($query);
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        $stmt->bindParam('id', $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public function updateTotalCo2(){

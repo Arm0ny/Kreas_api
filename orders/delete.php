@@ -10,15 +10,15 @@ $data = json_decode(file_get_contents("php://input"));
 $database = new Database();
 $db = $database->connect();
 
-$product = new Product($db);
+$order = new Order($db);
 
 if(!empty($data->id)){
-    $product->id = $data->id;
+    $order->id = $data->id;
 
-    if ($product->delete()){
+    if ($order->delete()){
         http_response_code(201);
         echo json_encode(
-            array("message" => "Product Successfully Deleted")
+            array("message" => "Order Successfully Deleted")
         );
     }else{
         http_response_code(500);

@@ -1,10 +1,9 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: Application/json');
-header('Access-Control-Allow-Headers: Access-Control-Allow-Origin, Content-Type, Authorization, X-Requested-With');
+require("../vendor/autoload.php");
+require("../config/headers.php");
 
-$database = new Database;
+$database = new Database();
 $db = $database->connect();
 
 $order = new Order($db);
