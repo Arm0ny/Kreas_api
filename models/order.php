@@ -34,7 +34,7 @@ class Order
     }
 
     public function create(){
-        $query = "INSERT INTO " . $this->table_name . " (date_sell, dest_country, total_co2) VALUES (DEFAULT, :dest_country, DEFAULT)";
+        $query = "INSERT INTO " . $this->table_name . " (sell_date, dest_country, total_co2) VALUES (DEFAULT, :dest_country, DEFAULT)";
         $this->dest_country = htmlspecialchars(strip_tags($this->dest_country));
 
         $stmt = $this->conn->prepare($query);

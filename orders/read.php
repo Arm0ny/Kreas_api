@@ -9,10 +9,10 @@ $db = $database->connect();
 $order = new Order($db);
 $orderDetails = new OrderDetails($db);
 
-if (!empty($_GET["order_by"])){
+if (isset($_GET["order_by"])){
     $order->order_by = $_GET["order_by"];
 }
-if (!empty($_GET["order"])){
+if (isset($_GET["order"])){
     $order->order = $_GET["order"];
 }
 

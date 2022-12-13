@@ -5,22 +5,19 @@ require("../config/headers.php");
 require("../config/database.php");
 header('Access-Control-Allow-Methods: POST');
 
-$data = json_decode(file_get_contents("php://input"));
+$data = json_decode(file_get_contents("php://input"), true);
 
 $database = new Database();
 $db = $database->connect();
 
 $product = new Product($db);
 
-$product->id = $data->id;
-$product->name = $data->name;
-$product->co2_value = $data->co2_value;
-
-if(!empty($data->id) && !empty($data->name) && !empty($data->co2_value)){
-    if($product->update()){
+if(!empty($data["id"]) && !empty($data["params"])) {
+    $product->id = $data["id"];
+    if ($product->update($data["params"])) {
         http_response_code(200);
-        echo json_encode(array("message" => "OK, Product Updated"));
-    }else{
+        echo json_encode(array("message" => "OK, product Updated Successfully"));
+    } else {
         http_response_code(500);
         echo json_encode(array("message" => "Internal Server Error"));
     }

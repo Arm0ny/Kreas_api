@@ -12,6 +12,7 @@
     "classmap": ["./"]
   },
   "require": {
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-pdo": "*"
   }
 }
