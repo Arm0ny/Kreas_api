@@ -2,7 +2,7 @@
 
 require("../vendor/autoload.php");
 require("../config/headers.php");
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: PUT');
 
 $data = json_decode(file_get_contents("php://input"), true);
 

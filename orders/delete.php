@@ -3,7 +3,7 @@
 require("../vendor/autoload.php");
 require("../config/headers.php");
 require("../config/database.php");
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: DELETE');
 
 $data = json_decode(file_get_contents("php://input"));
 
