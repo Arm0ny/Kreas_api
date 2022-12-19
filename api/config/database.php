@@ -2,7 +2,7 @@
 
 class Database {
     private $host = 'localhost';
-    private $db_name = 'keras_db';
+    private $db_name = 'kreas_db';
     private $username = 'root';
     private $password = 'armandosql';
     public $conn;
